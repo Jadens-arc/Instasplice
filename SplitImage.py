@@ -44,4 +44,6 @@ def autosplit(path, save=True):
 
 images = os.listdir('input')
 for image in images:
+    if image == '.gitignore':
+        continue
     autosplit(f'input/{image}')
