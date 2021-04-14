@@ -15,9 +15,10 @@ def splitImage(n, path=None, image=None):
     return images
 
 
-def saveImages(images, name, filetype):
+def saveImages(images, name, filetype, show=True):
     for index, image in enumerate(images):
-        image.save(f'output/{name}{index}.{filetype}')
+        image.save(f'{name}{index}.{filetype}')
+        image.show()
 
 
 def makeImageDivisible(path=None, image=None):
