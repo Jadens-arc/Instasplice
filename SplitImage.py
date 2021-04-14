@@ -1,4 +1,5 @@
 from PIL import Image
+import os
 
 
 def splitImage(n, path=None, image=None):
@@ -41,7 +42,6 @@ def autosplit(path, save=True):
     return images
 
 
-if __name__ == '__main__':
-    # images = splitImage('assets/testimage1.png', 3)
-    # saveImages(images, 'lol', 'png')
-    autosplit('assets/lake.jpg')
+images = os.listdir('input')
+for image in images:
+    autosplit(f'input/{image}')
