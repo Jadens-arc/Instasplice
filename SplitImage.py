@@ -20,8 +20,9 @@ def saveImages(images, name, filetype):
         image.save(f'output/{name}{index}.{filetype}')
 
 
-def makeImageDivisible(path):
-    image = Image.open(path)
+def makeImageDivisible(path=None, image=None):
+    if image == None:
+        image = Image.open(path)
     width, height = image.size
     leftOver = width % height
     print(leftOver)
@@ -29,7 +30,7 @@ def makeImageDivisible(path):
 
 
 def autosplit(path, save=True):
-    croppedImage = makeImageDivisible(path)
+    croppedImage = makeImageDivisible(path=path)
     width, height = croppedImage.size
     ratio = width / height
     images = splitImage(int(ratio), image=croppedImage)
