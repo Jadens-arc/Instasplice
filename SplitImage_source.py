@@ -42,9 +42,9 @@ def autosplit(path, save=True):
 
     return images
 
-
-images = os.listdir('input')
-for image in images:
-    if image == '.gitignore':
-        continue
-    autosplit(f'input/{image}')
+if __name__ == '__main__':
+    images = os.listdir('input')
+    for image in images:
+        if image == '.gitignore':
+            continue
+        autosplit(f'input/{image}')
