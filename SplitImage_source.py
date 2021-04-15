@@ -18,7 +18,7 @@ def splitImage(n, path=None, image=None):
 def saveImages(images, name, filetype, show=True):
     for index, image in enumerate(images):
         image.save(f'{name}{index}.{filetype}')
-        image.show()
+        if show: image.show()
 
 
 def viewImages(images):
