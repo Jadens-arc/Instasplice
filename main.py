@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
-from SplitImage_source import autosplit
+from SplitImage_source import autosplit, saveImages, viewImages
 
 root = tk.Tk()
 root.title('Instasplice')
@@ -21,12 +21,22 @@ def browseFiles():
     return filename
 
 
+def saveImagesGUI(images, name, filetype):
+    folder = filedialog.askdirectory()
+    print(folder + name)
+    saveImages(images, folder + "/" + name, filetype, show=False)
+
+
 def cropImage():
     path = browseFiles()
     if path:
-        autosplit(path)
-        viewPhotosBtn = tk.Button(root, text="View Photos")
+        images, name, filetype = autosplit(path, save=False)
+        viewPhotosBtn = tk.Button(
+            root, text="View Photos", command=lambda: viewImages(images))
         viewPhotosBtn.place(relx=0.1, rely=0.5, relwidth=0.8)
+        saveImagesBtn = tk.Button(
+            root, text="Save Photos", command=lambda: saveImagesGUI(images, name, filetype))
+        saveImagesBtn.place(relx=0.1, rely=0.6, relwidth=0.8)
 
 
 title = tk.Label(root, text="Pick an image to crop")
