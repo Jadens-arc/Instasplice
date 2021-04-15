@@ -41,12 +41,12 @@ def autosplit(path, save=True):
     ratio = width / height
     images = splitImage(int(ratio), image=croppedImage)
 
+    pathInfo = path.split('.')
+    pathInfo[0] = pathInfo[0].split('/')[-1]
     if save:
-        pathInfo = path.split('.')
-        pathInfo[0] = pathInfo[0].split('/')[-1]
         saveImages(images, pathInfo[0], pathInfo[1])
 
-    return images
+    return [images, pathInfo[0], pathInfo[1]]
 
 
 if __name__ == '__main__':
