@@ -21,6 +21,11 @@ def saveImages(images, name, filetype, show=True):
         image.show()
 
 
+def viewImages(images):
+    for image in images:
+        image.show()
+
+
 def makeImageDivisible(path=None, image=None):
     if image == None:
         image = Image.open(path)
@@ -42,6 +47,7 @@ def autosplit(path, save=True):
         saveImages(images, pathInfo[0], pathInfo[1])
 
     return images
+
 
 if __name__ == '__main__':
     images = os.listdir('input')
