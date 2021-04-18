@@ -4,6 +4,7 @@
 
 ## How to use
 
-1. Drag the photo you would like to be cropped into the input folder
-2. Run the SplitImage.exe file
-3. Enjoy your cropped photos in the output folder
+1. Run the exe
+2. Select the image you want to crop
+3. Save the cropped photos
+4. Post to instagram
